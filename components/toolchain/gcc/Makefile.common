@@ -280,7 +280,7 @@ endef
 	$(call run,$(CC) -x assembler-with-cpp,$(ASMFLAGS),Assembling)
 
 ifeq ($(PASS_LINKER_INPUT_VIA_FILE),1)
-GENERATE_LD_INPUT_FILE = $(call dump, $^ $(LIB_FILES)) > $(@:.out=.in)
+GENERATE_LD_INPUT_FILE = +$(call dump, $^ $(LIB_FILES)) > $(@:.out=.in)
 LD_INPUT               = @$(@:.out=.in)
 else
 GENERATE_LD_INPUT_FILE =
